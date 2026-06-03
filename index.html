@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nandhu's Cafe — Artisan Coffee & Slow Mornings</title>
+  <meta name="description" content="An artisan neighbourhood café in Indiranagar, Bengaluru. Committed to single-origin beans, slow-pulled espresso, fresh croissants, and warm conversations." />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Style Sheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-theme="light">
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="scrollProgress"></div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav id="mainNavbar">
+    <a href="#" class="nav-logo" id="navLogo">Nandhu's <span>Cafe</span></a>
+    
+    <div class="nav-container">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#roast-finder" class="nav-link">Roast Finder</a></li>
+        <li><a href="#hours" class="nav-link">Hours</a></li>
+        <li><a href="#location" class="nav-link">Find Us</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <!-- Theme Toggle Switch -->
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Tray Button (Cart) -->
+        <button id="trayToggle" class="tray-toggle-btn" aria-label="View Order Tray">
+          <div class="tray-icon-wrapper">
+            <svg class="tray-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span id="trayBadge" class="tray-badge">0</span>
+          </div>
+        </button>
+
+        <!-- Mobile Burger Menu -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-bg-beans" id="heroBeansBg"></div>
+    <div class="hero-text">
+      <p class="eyebrow">Est. 2014 · Artisan Roasters</p>
+      <h1>Where Every Cup<br>Tells a <em>Story</em></h1>
+      <p class="hero-desc">
+        Nandhu's Cafe is a neighbourhood café committed to single-origin beans, slow-pulled espresso, and the kind of warmth you'll want to come back to — every single morning.
+      </p>
+      <div class="btn-group">
+        <a href="#menu" class="btn-primary">Explore the Menu</a>
+        <a href="#roast-finder" class="btn-outline">Find Your Roast</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="coffee-cup-wrap">
+        <!-- Coffee cup SVG illustration -->
+        <svg class="cup-svg" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Steam -->
+          <g>
+            <path class="steam-line" d="M72 38 Q68 28 72 18 Q76 8 72 0" stroke="var(--latte)" stroke-width="2.5" stroke-linecap="round"/>
+            <path class="steam-line" d="M100 38 Q96 28 100 18 Q104 8 100 0" stroke="var(--latte)" stroke-width="2.5" stroke-linecap="round"/>
+            <path class="steam-line" d="M128 38 Q124 28 128 18 Q132 8 128 0" stroke="var(--latte)" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+          <!-- Cup body -->
+          <path d="M42 55 L52 185 Q52 195 62 195 L138 195 Q148 195 148 185 L158 55 Z" fill="var(--espresso)"/>
+          <!-- Cup rim -->
+          <rect x="38" y="50" width="124" height="12" rx="6" fill="var(--roast)"/>
+          <!-- Coffee surface -->
+          <ellipse cx="100" cy="75" rx="52" ry="10" fill="#7A5230"/>
+          <!-- Latte art swirl -->
+          <path d="M80 72 Q100 65 120 72 Q110 80 100 76 Q90 80 80 72Z" fill="var(--latte)" opacity="0.65"/>
+          <!-- Handle -->
+          <path d="M148 90 Q175 90 175 115 Q175 140 148 140" stroke="var(--roast)" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <!-- Saucer -->
+          <ellipse cx="100" cy="200" rx="68" ry="12" fill="var(--roast)"/>
+          <ellipse cx="100" cy="197" rx="60" ry="8" fill="var(--espresso)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="about-container">
+      <div class="about-text-col">
+        <p class="section-label">Our Story</p>
+        <h2 class="section-title">Crafted with <em>Care</em>,<br>Served with Soul</h2>
+        <div class="divider"></div>
+        <div class="about-body">
+          <p>
+            Nandhu's Cafe began in a tiny 200 sq ft space with a single La Marzocco and an obsessive belief that coffee could be both exceptional and comforting. A decade later, we still pull every shot by hand.
+          </p>
+          <p>
+            We partner directly with small-scale farmers in Ethiopia, Colombia, and Sumatra, paying above fair-trade prices so that the care put into growing the beans matches the care we put into brewing them.
+          </p>
+          <p>
+            Our pastries are baked fresh each morning. Our space is designed for slow mornings and long conversations. Come as you are — stay as long as you like.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number" id="statYears">0</div>
+            <div class="stat-label">Years in the neighbourhood</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="statPartners">0</div>
+            <div class="stat-label">Origin partners</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="statItems">0</div>
+            <div class="stat-label">Menu items</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Good mornings</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-img-col">
+        <div class="about-img-frame">
+          <img src="assets/cafe_storefront.png" alt="Nandhu's Cafe — Charming Storefront" class="about-image" id="aboutImg" />
+          <div class="image-overlay-card">
+            <div class="overlay-card-title">Meet Nandhu</div>
+            <div class="overlay-card-desc">Founder & Head Barista</div>
+          </div>
+        </div>
+        <div class="about-decoration"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section id="menu">
+    <div class="menu-header">
+      <p class="section-label">What We Brew</p>
+      <h2 class="section-title">Our <em>Menu</em></h2>
+      <div class="divider"></div>
+      
+      <!-- Interactive Search & Tags -->
+      <div class="menu-search-wrapper">
+        <div class="search-input-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="menuSearchInput" placeholder="Search coffee, bread, cold brews..." aria-label="Search Menu Items" />
+          <button id="clearSearchBtn" class="clear-search-btn" aria-label="Clear Search">&times;</button>
+        </div>
+        
+        <div class="dietary-tags" id="dietaryFilters">
+          <button class="dietary-btn active" data-filter="all">All Items</button>
+          <button class="dietary-btn" data-filter="popular">Popular</button>
+          <button class="dietary-btn" data-filter="vegan">Vegan</button>
+          <button class="dietary-btn" data-filter="gluten-free">Gluten-Free</button>
+          <button class="dietary-btn" data-filter="spicy">Spiced</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="menu-tabs" id="menuTabs">
+      <button class="tab-btn active" data-panel="coffee">
+        <span class="tab-icon-svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+        </span>
+        Hot Coffee
+      </button>
+      <button class="tab-btn" data-panel="food">
+        <span class="tab-icon-svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+        </span>
+        Fresh Bakery & Food
+      </button>
+      <button class="tab-btn" data-panel="cold">
+        <span class="tab-icon-svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        </span>
+        Iced & Cold Drinks
+      </button>
+    </div>
+
+    <div class="menu-panels-container">
+      <!-- Hot Coffee Panel -->
+      <div class="menu-panel active" id="panel-coffee">
+        <!-- Rendered dynamically by script.js, fallback static skeleton for SEO/No-JS -->
+        <div class="menu-items-grid" id="grid-coffee"></div>
+      </div>
+
+      <!-- Food Panel -->
+      <div class="menu-panel" id="panel-food">
+        <div class="menu-items-grid" id="grid-food"></div>
+      </div>
+
+      <!-- Cold Panel -->
+      <div class="menu-panel" id="panel-cold">
+        <div class="menu-items-grid" id="grid-cold"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROAST FINDER SECTION -->
+  <section id="roast-finder">
+    <div class="roast-finder-container">
+      <div class="roast-visual-col">
+        <div class="roast-image-frame">
+          <img src="assets/coffee_roasting.png" alt="Aromatic Coffee Beans Roasting" class="roast-bg-image" />
+          <div class="roast-graphic-overlay">
+            <svg class="chemex-svg" viewBox="0 0 100 150" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M30 20 L70 20 L60 65 L40 65 Z" fill="none"></path>
+              <path d="M40 65 L25 130 A10 10 0 0 0 35 140 L65 140 A10 10 0 0 0 75 130 L60 65 Z" fill="none"></path>
+              <path d="M30 65 L70 65" stroke="var(--latte)" stroke-width="6"></path>
+              <path class="dripping-drop" d="M50 72 V92" stroke="var(--latte)" stroke-dasharray="2 4"></path>
+              <circle cx="50" cy="115" r="15" fill="var(--espresso)" opacity="0.3"></circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="roast-quiz-col">
+        <p class="section-label">Find Your Match</p>
+        <h2 class="section-title">Roast &amp; Brew <em>Finder</em></h2>
+        <div class="divider"></div>
+        <p class="roast-intro-text">
+          Not sure what to choose? Answer three brief questions and our virtual barista will suggest a single-origin pairing matched to your taste.
+        </p>
+
+        <!-- Quiz Widget Container -->
+        <div class="quiz-card" id="quizCard">
+          <div class="quiz-progress-bar-wrap">
+            <div class="quiz-progress-line" id="quizProgressLine"></div>
+          </div>
+          
+          <div class="quiz-step active" data-step="1" id="quizStep1">
+            <h3 class="quiz-question">1. What taste notes appeal to you most?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-val="A">Rich dark chocolate &amp; caramel</button>
+              <button class="quiz-opt" data-val="B">Bright citrus &amp; wild berries</button>
+              <button class="quiz-opt" data-val="C">Spiced, herbal &amp; cedarwood</button>
+              <button class="quiz-opt" data-val="D">Sweet, creamy &amp; smooth vanilla</button>
+            </div>
+          </div>
+
+          <div class="quiz-step" data-step="2" id="quizStep2">
+            <h3 class="quiz-question">2. How much caffeine are you looking for?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-val="A">Maximum strength kickstart</button>
+              <button class="quiz-opt" data-val="B">Standard balanced kick</button>
+              <button class="quiz-opt" data-val="C">Mild, easy-drinking flow</button>
+              <button class="quiz-opt" data-val="D">Decaf / Refreshing alternative</button>
+            </div>
+          </div>
+
+          <div class="quiz-step" data-step="3" id="quizStep3">
+            <h3 class="quiz-question">3. How do you prefer your coffee brewed?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-val="A">Strong concentrated shot (Espresso)</button>
+              <button class="quiz-opt" data-val="B">Clean, slow filtered (Pour Over)</button>
+              <button class="quiz-opt" data-val="C">Full-bodied immersion (French Press)</button>
+              <button class="quiz-opt" data-val="D">Chilled over ice with milky foam</button>
+            </div>
+          </div>
+
+          <!-- Recommendation display -->
+          <div class="quiz-step result-step" id="quizResultStep">
+            <div class="recommendation-card">
+              <span class="recommendation-badge">Your Match</span>
+              <h3 class="recommended-title" id="recTitle">Ethiopian Sidamo</h3>
+              <p class="recommended-desc" id="recDesc">A light roast with fragrant floral notes, hints of lemon zest, and a tea-like finish. Perfect as a Pour Over.</p>
+              
+              <!-- Match stats -->
+              <div class="match-stats-row">
+                <div class="match-stat">
+                  <span class="match-stat-lbl">Roast Profile</span>
+                  <strong id="recRoast">Light</strong>
+                </div>
+                <div class="match-stat">
+                  <span class="match-stat-lbl">Intensity</span>
+                  <strong id="recIntensity">3/5</strong>
+                </div>
+              </div>
+
+              <div class="recommendation-actions">
+                <button id="virtualBrewBtn" class="btn-primary">Virtual Brew ☕</button>
+                <button id="addRecToTrayBtn" class="btn-outline">Add to Tray</button>
+                <button id="restartQuizBtn" class="quiz-restart-btn">Take quiz again</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIRTUAL BREW MODAL -->
+  <div class="brew-modal" id="brewModal" aria-hidden="true">
+    <div class="brew-modal-content">
+      <button id="closeBrewModalBtn" class="close-modal-btn" aria-label="Close Modal">&times;</button>
+      <h3 class="brew-modal-title">Brewing your perfect cup...</h3>
+      <p class="brew-modal-sub" id="brewModalBean">Ethiopian Sidamo Single Origin</p>
+      
+      <!-- Custom brewing animation container -->
+      <div class="brew-anim-container">
+        <!-- Pour Over Animation -->
+        <div class="kettle-pour-anim">
+          <div class="kettle-body"></div>
+          <div class="water-stream" id="waterStream"></div>
+        </div>
+        <div class="dripper-cone">
+          <div class="filter-cup">
+            <div class="coffee-grounds"></div>
+            <div class="dripping-liquid" id="drippingLiquid"></div>
+          </div>
+        </div>
+        <div class="glass-carafe">
+          <div class="carafe-liquid" id="carafeLiquid"></div>
+        </div>
+      </div>
+
+      <div class="brew-status-text" id="brewStatusText">Warming water to 94°C...</div>
+      
+      <!-- Completed State -->
+      <div class="brew-success-msg" id="brewSuccessMsg">
+        <div class="success-checkmark">✓</div>
+        <h4>Enjoy the aroma!</h4>
+        <p>A hypothetical cup of freshly extracted coffee has been prepared for you. Feel free to add the real beans to your Tray below!</p>
+        <button id="dismissBrewModalBtn" class="btn-primary">Add to Tray & Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOURS SECTION -->
+  <section id="hours">
+    <div class="hours-container">
+      <div class="hours-info-col">
+        <p class="section-label">When We're Open</p>
+        <h2 class="section-title">Opening <em>Hours</em></h2>
+        <div class="divider"></div>
+        <p class="hours-note">
+          We open early so you can start your morning right. Last orders are 20 minutes before closing. The kitchen stops taking food orders at 5 pm.
+        </p>
+        <div class="hours-highlight">
+          <p>
+            <strong>Weekend Brunch</strong> runs from 9 am to 2 pm on Saturdays and Sundays — extended menu with eggs, waffles, and our famous <strong>Cardamom Cortado</strong> paired with the day's newspaper.
+          </p>
+        </div>
+      </div>
+      <div class="hours-table-col">
+        <table class="hours-table">
+          <tbody>
+            <tr>
+              <td class="day">Monday</td>
+              <td class="time">7:30 am – 6:00 pm</td>
+            </tr>
+            <tr>
+              <td class="day">Tuesday</td>
+              <td class="time">7:30 am – 6:00 pm</td>
+            </tr>
+            <tr>
+              <td class="day">Wednesday</td>
+              <td class="time">7:30 am – 6:00 pm</td>
+            </tr>
+            <tr>
+              <td class="day">Thursday</td>
+              <td class="time">7:30 am – 7:00 pm</td>
+            </tr>
+            <tr>
+              <td class="day">Friday</td>
+              <td class="time">7:30 am – 8:00 pm</td>
+            </tr>
+            <tr>
+              <td class="day">Saturday</td>
+              <td class="time">8:00 am – 8:00 pm</td>
+            </tr>
+            <tr>
+              <td class="day">Sunday</td>
+              <td class="time">9:00 am – 5:00 pm</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER REVIEWS & FORM SECTION -->
+  <section id="testimonials">
+    <div class="testimonials-header">
+      <p class="section-label">Voices of Brew &amp; Co.</p>
+      <h2 class="section-title">Customer <em>Stories</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="testimonials-grid">
+      <!-- Review Carousel -->
+      <div class="carousel-column">
+        <div class="carousel-container" id="reviewCarousel">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- Rendered dynamically by script.js -->
+          </div>
+          
+          <div class="carousel-controls">
+            <button class="carousel-arrow prev" id="carouselPrev" aria-label="Previous Review">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </button>
+            <div class="carousel-indicators" id="carouselIndicators"></div>
+            <button class="carousel-arrow next" id="carouselNext" aria-label="Next Review">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Review Form -->
+      <div class="form-column">
+        <div class="review-form-card">
+          <h3>Share Your Story</h3>
+          <p>Did you enjoy your brew? Leave us a rating and a comment to let us know!</p>
+          
+          <form id="addReviewForm">
+            <div class="form-group">
+              <label for="reviewName">Your Name</label>
+              <input type="text" id="reviewName" required placeholder="e.g. Rahul Sharma" />
+            </div>
+
+            <div class="form-group">
+              <label>Coffee Rating</label>
+              <div class="bean-rating-wrapper" id="beanRatingSelector">
+                <!-- Coffee bean rating SVGs -->
+                <button type="button" class="bean-rate-btn" data-rating="1" aria-label="1 Coffee Bean">
+                  <svg class="bean-svg" viewBox="0 0 24 24"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 4.5c0-.83-.67-1.5-1.5-1.5S10 5.67 10 6.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm.5 11c0-.83-.67-1.5-1.5-1.5S8.5 16.67 8.5 17.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm-5-5c0-.83-.67-1.5-1.5-1.5S5.5 11.67 5.5 12.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm10 0c0-.83-.67-1.5-1.5-1.5S14.5 11.67 14.5 12.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5z"/></svg>
+                </button>
+                <button type="button" class="bean-rate-btn" data-rating="2" aria-label="2 Coffee Beans">
+                  <svg class="bean-svg" viewBox="0 0 24 24"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 4.5c0-.83-.67-1.5-1.5-1.5S10 5.67 10 6.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm.5 11c0-.83-.67-1.5-1.5-1.5S8.5 16.67 8.5 17.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm-5-5c0-.83-.67-1.5-1.5-1.5S5.5 11.67 5.5 12.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm10 0c0-.83-.67-1.5-1.5-1.5S14.5 11.67 14.5 12.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5z"/></svg>
+                </button>
+                <button type="button" class="bean-rate-btn" data-rating="3" aria-label="3 Coffee Beans">
+                  <svg class="bean-svg" viewBox="0 0 24 24"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 4.5c0-.83-.67-1.5-1.5-1.5S10 5.67 10 6.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm.5 11c0-.83-.67-1.5-1.5-1.5S8.5 16.67 8.5 17.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm-5-5c0-.83-.67-1.5-1.5-1.5S5.5 11.67 5.5 12.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm10 0c0-.83-.67-1.5-1.5-1.5S14.5 11.67 14.5 12.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5z"/></svg>
+                </button>
+                <button type="button" class="bean-rate-btn" data-rating="4" aria-label="4 Coffee Beans">
+                  <svg class="bean-svg" viewBox="0 0 24 24"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 4.5c0-.83-.67-1.5-1.5-1.5S10 5.67 10 6.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm.5 11c0-.83-.67-1.5-1.5-1.5S8.5 16.67 8.5 17.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm-5-5c0-.83-.67-1.5-1.5-1.5S5.5 11.67 5.5 12.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm10 0c0-.83-.67-1.5-1.5-1.5S14.5 11.67 14.5 12.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5z"/></svg>
+                </button>
+                <button type="button" class="bean-rate-btn" data-rating="5" aria-label="5 Coffee Beans">
+                  <svg class="bean-svg" viewBox="0 0 24 24"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 4.5c0-.83-.67-1.5-1.5-1.5S10 5.67 10 6.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm.5 11c0-.83-.67-1.5-1.5-1.5S8.5 16.67 8.5 17.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm-5-5c0-.83-.67-1.5-1.5-1.5S5.5 11.67 5.5 12.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zm10 0c0-.83-.67-1.5-1.5-1.5S14.5 11.67 14.5 12.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5z"/></svg>
+                </button>
+              </div>
+              <input type="hidden" id="reviewRatingVal" value="5" />
+            </div>
+
+            <div class="form-group">
+              <label for="reviewComments">Your Review</label>
+              <textarea id="reviewComments" required rows="3" placeholder="Sipping on the Cardamom Cortado was the highlight of my weekend! Warm atmosphere and incredible service."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-full-btn">Publish Review</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION SECTION -->
+  <section id="location">
+    <div class="location-container">
+      <div class="location-details-col">
+        <p class="section-label">Come Visit Us</p>
+        <h2 class="section-title">Find <em>Nandhu's Cafe</em></h2>
+        <div class="divider"></div>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </span>
+            <div>
+              <div class="contact-label">Address</div>
+              <div class="contact-value">12, Church Street, Indiranagar<br>Bengaluru, Karnataka 560038</div>
+            </div>
+          </li>
+          <li>
+            <span class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </span>
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">+91 86394 5470</div>
+            </div>
+          </li>
+          <li>
+            <span class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </span>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">upparanandhini8@gmail.com</div>
+            </div>
+          </li>
+          <li>
+            <span class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            </span>
+            <div>
+              <div class="contact-label">Getting Here</div>
+              <div class="contact-value">5 min walk from Indiranagar Metro Station (Purple Line). Ample street parking on 100 Feet Road.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="map-column">
+        <div class="map-frame-wrapper">
+          <!-- A highly detailed stylized vector map of Indiranagar neighbourhood -->
+          <svg class="map-svg-illustration" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(200, 169, 122, 0.12)" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <!-- Background Map Base -->
+            <rect width="500" height="500" fill="var(--cream-bg-soft)" />
+            <rect width="500" height="500" fill="url(#gridPattern)" />
+            
+            <!-- Roads/Streets -->
+            <!-- 100 Feet Road -->
+            <path d="M120 0 L120 500" stroke="var(--steam)" stroke-width="32" stroke-linecap="square" />
+            <path d="M120 0 L120 500" stroke="var(--latte)" stroke-width="2" stroke-dasharray="8 8" />
+            <!-- CMH Road -->
+            <path d="M0 150 L500 150" stroke="var(--steam)" stroke-width="24" />
+            <!-- Church Street / Lane -->
+            <path d="M120 300 L500 300" stroke="var(--steam)" stroke-width="18" />
+            <!-- Metro Line Purple (Elevated Structure) -->
+            <path d="M0 142 L500 142" stroke="rgba(128, 0, 128, 0.3)" stroke-width="8" />
+            
+            <!-- Metro Station Marker -->
+            <g class="metro-group">
+              <circle cx="80" cy="142" r="14" fill="#800080" />
+              <text x="80" y="146" font-family="'DM Mono', monospace" font-size="10" fill="#FFF" text-anchor="middle" font-weight="bold">M</text>
+              <text x="80" y="122" font-family="'Outfit', sans-serif" font-size="10" fill="var(--espresso)" font-weight="600" text-anchor="middle">Indiranagar Metro</text>
+            </g>
+            
+            <!-- Landmarks & Parking -->
+            <g class="map-label-group">
+              <!-- 100 Feet Road label -->
+              <text x="106" y="250" font-family="'DM Mono', monospace" font-size="9" fill="var(--warm-mid)" transform="rotate(-90 106 250)" letter-spacing="0.1em">100 FEET ROAD</text>
+              <!-- Church Street label -->
+              <text x="250" y="292" font-family="'DM Mono', monospace" font-size="9" fill="var(--warm-mid)" letter-spacing="0.1em">CHURCH STREET</text>
+              <!-- Parking indicator -->
+              <rect x="360" y="340" width="30" height="20" rx="4" fill="var(--steam)" />
+              <text x="375" y="354" font-family="'Outfit', sans-serif" font-size="12" fill="var(--roast)" font-weight="bold" text-anchor="middle">P</text>
+              <text x="375" y="372" font-family="'Outfit', sans-serif" font-size="8" fill="var(--warm-mid)" text-anchor="middle">Street Parking</text>
+            </g>
+
+            <!-- Cafe Location Pin (Nandhu's Cafe) -->
+            <g class="map-interactive-pin" id="mapPin">
+              <!-- Pulsing Radar ring -->
+              <circle cx="320" cy="300" r="18" fill="var(--latte)" opacity="0.3" class="pin-pulse-circle">
+                <animate attributeName="r" values="10;32;10" dur="2.5s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" repeatCount="indefinite" />
+              </circle>
+              <!-- Pin stem/shadow -->
+              <ellipse cx="320" cy="304" rx="8" ry="3" fill="var(--roast)" opacity="0.4" />
+              <path d="M320 300 C310 280 305 270 305 255 A15 15 0 0 1 335 255 C335 270 330 280 320 300 Z" fill="var(--espresso)" stroke="var(--latte)" stroke-width="2" />
+              <circle cx="320" cy="255" r="5" fill="var(--cream)" />
+              
+              <!-- Popout Label -->
+              <g class="pin-popup">
+                <rect x="255" y="200" width="130" height="30" rx="4" fill="var(--roast)" />
+                <polygon points="320,235 315,230 325,230" fill="var(--roast)" />
+                <text x="320" y="219" font-family="'Playfair Display', serif" font-size="11" font-style="italic" fill="var(--cream)" text-anchor="middle">Nandhu's Cafe</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Nandhu's <span>Cafe</span></div>
+        <p class="footer-brand-tagline">Artisan Roasters &amp; Neighborhood Cafe.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#about">About Our Beans</a></li>
+          <li><a href="#menu">Artisan Menu</a></li>
+          <li><a href="#roast-finder">Roast Matcher</a></li>
+          <li><a href="#hours">Opening Hours</a></li>
+          <li><a href="#location">Find Our Cafe</a></li>
+        </ul>
+      </div>
+      <div class="footer-location">
+        <h4>Visit Us</h4>
+        <p>12, Church Street, Indiranagar</p>
+        <p>Bengaluru, Karnataka 560038</p>
+        <p class="footer-highlight-text">Indiranagar Metro Station (5m Walk)</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Nandhu's Cafe. All rights reserved. upparanandhini8@gmail.com</p>
+      <p class="designer-text">Crafted for coffee enthusiasts</p>
+    </div>
+  </footer>
+
+  <!-- ORDER TRAY (CART) SLIDE-OUT DRAWER -->
+  <div class="tray-backdrop" id="trayBackdrop" aria-hidden="true"></div>
+  <aside class="tray-sidebar" id="traySidebar" aria-label="Your Order Tray">
+    <div class="tray-header">
+      <h2 class="tray-title">Your Order Tray (<span id="trayCountText">0</span>)</h2>
+      <button id="closeTrayBtn" class="close-tray-btn" aria-label="Close Tray">&times;</button>
+    </div>
+
+    <!-- Empty Tray view -->
+    <div class="tray-empty-state" id="trayEmptyState">
+      <div class="empty-tray-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+      </div>
+      <h3>Your tray is empty</h3>
+      <p>Add fresh espresso drinks, warm pastries, or delicious cold brews from our menu to start your order.</p>
+      <button id="trayExploreMenuBtn" class="btn-primary">Browse Menu</button>
+    </div>
+
+    <!-- Active Tray items -->
+    <div class="tray-active-content" id="trayActiveContent">
+      <div class="tray-items-list" id="trayItemsList">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+      
+      <div class="tray-summary-card">
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span id="traySubtotal">₹0.00</span>
+        </div>
+        <div class="summary-line">
+          <span>CGST &amp; SGST (5%)</span>
+          <span id="trayTax">₹0.00</span>
+        </div>
+        <div class="summary-line total-line">
+          <span>Grand Total</span>
+          <span id="trayTotal">₹0.00</span>
+        </div>
+        
+        <button id="checkoutBtn" class="btn-primary w-full-btn checkout-action-btn">
+          <span>Brew Order</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MOCK CHECKOUT BREWING OVERLAY -->
+  <div class="checkout-overlay" id="checkoutOverlay" aria-hidden="true">
+    <div class="checkout-overlay-content">
+      <!-- Full Page Espresso brewing animation -->
+      <div class="espresso-machine-anim">
+        <div class="portafilter-group">
+          <div class="machine-head"></div>
+          <div class="portafilter-handle"></div>
+          <div class="coffee-stream" id="checkoutCoffeeStream"></div>
+        </div>
+        <div class="milk-steamer">
+          <div class="steamer-wand"></div>
+          <div class="steam-puff"></div>
+        </div>
+        <div class="cup-filling-container">
+          <div class="ceramic-mug">
+            <div class="mug-liquid" id="mugLiquidFill"></div>
+          </div>
+        </div>
+      </div>
+      
+      <h3 class="checkout-step-title" id="checkoutStepTitle">Heating group head...</h3>
+      <p class="checkout-step-desc" id="checkoutStepDesc">Pulling shot of our signature blend espresso.</p>
+      
+      <!-- Paid Receipt -->
+      <div class="checkout-receipt-card" id="checkoutReceiptCard">
+        <div class="receipt-header">
+          <div class="receipt-logo">Nandhu's Cafe</div>
+          <p>Indiranagar, Bengaluru</p>
+          <p class="receipt-date" id="receiptDate">June 2, 2026</p>
+        </div>
+        
+        <div class="receipt-divider"></div>
+        
+        <div class="receipt-items" id="receiptItemsList">
+          <!-- Rendered dynamically -->
+        </div>
+        
+        <div class="receipt-divider"></div>
+        
+        <div class="receipt-totals">
+          <div class="receipt-total-line">
+            <span>Subtotal</span>
+            <span id="receiptSubtotal">₹0.00</span>
+          </div>
+          <div class="receipt-total-line">
+            <span>Tax (5%)</span>
+            <span id="receiptTax">₹0.00</span>
+          </div>
+          <div class="receipt-total-line grand-total">
+            <span>TOTAL PAID</span>
+            <span id="receiptTotal">₹0.00</span>
+          </div>
+        </div>
+        
+        <div class="receipt-stamp">PAID - SIMULATED</div>
+        
+        <p class="receipt-footer">Thank you for visiting! Bring this receipt to the physical counter for a hypothetical smile.</p>
+        
+        <button id="closeCheckoutOverlayBtn" class="btn-primary">Return to Cafe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Javascript -->
+  <script src="script.js"></script>
+</body>
+</html>
